@@ -1,0 +1,26 @@
+server:
+    port: 8090
+spring:
+    datasource:
+        password: 123456
+        url: jdbc:postgresql://localhost:5432/Reactive
+        username: postgres
+        driver-class-name: org.postgresql.Driver
+    flyway:
+        locations: classpath:db/schema/,classpath:db/test-data/
+        password: 123456
+        schemas: testreactive
+        url: jdbc:postgresql://localhost:5432/Reactive
+        user: postgres
+        placeholder-replacement: false
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        hibernate:
+            ddl-auto: validate
+        properties:
+            hibernate:
+                default_schema: '"testreactive"'
+                format_sql: true
+                temp:
+                    use_jdbc_metadata_defaults: false
+        show-sql: false
